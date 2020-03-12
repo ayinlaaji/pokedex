@@ -1,0 +1,49 @@
+{
+  "name": "pokedex",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.19",
+    "constate": "^2.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "lodash": "^4.17.15",
+    "next": "^9.3.0",
+    "react": "^16.13.0",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^16.13.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react-test-renderer": "^16.13.0",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./node_modules/.bin/lint-staged"
+    }
+  },
+  "engineStrict": true,
+  "lint-staged": {
+    "*.{html,ts,tsx,js,jsx,json,css,md,scss,css,less,sass}": [
+      "pretty-quick --staged"
+    ]
+  },
+  "installConfig": {
+    "pnp": true
+  }
+}
