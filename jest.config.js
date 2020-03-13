@@ -15,6 +15,7 @@ module.exports = {
     "^.+\\.module\\.(css|sass|scss)$"
   ],
   moduleNameMapper: {
-    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+    "@pokedex/(.*)": "<rootDir>/$1"
   }
 };
