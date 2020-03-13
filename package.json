@@ -42,8 +42,5 @@
     "*.{html,ts,tsx,js,jsx,json,css,md,scss,css,less,sass}": [
       "pretty-quick --staged"
     ]
-  },
-  "installConfig": {
-    "pnp": true
   }
 }
