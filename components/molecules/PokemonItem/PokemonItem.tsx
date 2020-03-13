@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactEventHandler } from "react";
 import { List, Button } from "semantic-ui-react";
 
 type Props = {
   name: string;
-  handleClick: any;
+  handleClick: ReactEventHandler;
 };
 const PokemonItem = ({ name, handleClick }: Props) => (
   <List.Item>

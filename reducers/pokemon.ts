@@ -1,14 +1,16 @@
-import { useReducer, useEffect, useState } from "react";
-import PokemonService from "../services/pokemon";
-import { Pokemon } from "../typings/pokemon";
+import { useReducer, useEffect, useState, Reducer } from "react";
+import PokemonService from "@pokedex/services/pokemon";
+import { Pokemon, Poke } from "@pokedex/typings/pokemon";
 
 enum ActionType {
   UPDATE_STATE = 0
 }
 
 type State = {
-  pokemons: any[]; //{ [pokemonId: string]: Pokemon };
-  pokemonIds: string[];
+  pokemons: Poke[];
+  chunk: Poke[];
+  totalPages: number;
+  pageLimit: number;
 };
 
 type Action = {
@@ -28,20 +30,14 @@ const reducer: Reducer<State, Action> = (state, { type, payload }) => {
   }
 };
 
-const defaultState = {
+const defaultState: State = {
   pokemons: [],
   chunk: [],
   totalPages: 0,
-  pokemonIds: [],
   pageLimit: 10
 };
 
-type IUsePokemons = {
-  pokemons: any[];
-  getPokemon: () => Pokemon;
-};
-
-const d = {
+const defaultPokemon: Pokemon = {
   baseExperience: 0,
   height: 0,
   weight: 0,
@@ -52,9 +48,16 @@ const d = {
   imgUrl: ""
 };
 
+type IUsePokemons = () => {
+  totalPages: number;
+  pokemons: Poke[];
+  getPokemon: (id: string) => void;
+  morePokemons: (cursor: number) => void;
+  currentPokemon: Pokemon;
+};
 const usePokemon: IUsePokemons = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const [currentPokemon, setCurrentPokemon] = useState(d);
+  const [currentPokemon, setCurrentPokemon] = useState<Pokemon>(defaultPokemon);
 
   const pks = new PokemonService();
 
@@ -75,27 +78,25 @@ const usePokemon: IUsePokemons = () => {
       }
     });
   };
-  const getPokemon = async (id: string) => {
-    let pokemon = await pks.getPokemon(id);
-    setCurrentPokemon(pokemon);
-  };
-  const morePokemons = (cursor: number) => {
-    let offset = state.pageLimit * (cursor - 1);
-    let limit = state.pageLimit + offset;
-    let chunk = state.pokemons.slice(offset, limit);
-    dispatch({
-      type: ActionType.UPDATE_STATE,
-      payload: {
-        chunk
-      }
-    });
-  };
   return {
     pokemons: state.chunk,
     totalPages: state.totalPages,
-    getPokemon,
-    morePokemons,
-    currentPokemon
+    currentPokemon,
+    getPokemon: async (id: string) => {
+      let pokemon = await pks.getPokemon(id);
+      setCurrentPokemon(pokemon);
+    },
+    morePokemons: (cursor: number) => {
+      let offset = state.pageLimit * (cursor - 1);
+      let limit = state.pageLimit + offset;
+      let chunk = state.pokemons.slice(offset, limit);
+      dispatch({
+        type: ActionType.UPDATE_STATE,
+        payload: {
+          chunk
+        }
+      });
+    }
   };
 };
 

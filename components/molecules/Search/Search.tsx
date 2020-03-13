@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, ReactEventHandler } from "react";
 import { Form } from "semantic-ui-react";
 import Autocomplete from "react-autocomplete";
 import * as styles from "./styles";
 import { Pokemon } from "@pokedex/typings/pokemon";
 
 type Props = {
-  handleSubmit: any;
+  handleSubmit: ReactEventHandler;
   pokemons: Pokemon[];
 };
 const Search = ({ handleSubmit, pokemons }: Props) => {

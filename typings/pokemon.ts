@@ -8,3 +8,8 @@ export type Pokemon = {
   types: string[];
   abilities: string[];
 };
+
+export type Poke = {
+  id: string;
+  name: string;
+};

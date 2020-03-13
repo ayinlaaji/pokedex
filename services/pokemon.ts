@@ -1,13 +1,11 @@
 import fetch from "isomorphic-unfetch";
 import _ from "lodash";
-import { Pokemon } from "../typings/pokemon";
+import { Pokemon, Poke } from "../typings/pokemon";
 import { baseUrl } from "../configurations/domains";
 
 class PokemonService {
-  constructor() {
-    this.baseUrl = baseUrl;
-  }
-  async listPokemons(): Promise<{ name: string; url: string }[]> {
+  baseUrl = baseUrl;
+  async listPokemons(): Promise<Poke[]> {
     try {
       let url = this.baseUrl + "/pokemon?offset=0&limit=960";
       let r = await fetch(url);

@@ -1,6 +1,5 @@
 # Logs
 next-env.d.ts
-.next
 logs
 *.log
 npm-debug.log*
