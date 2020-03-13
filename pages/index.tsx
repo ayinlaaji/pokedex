@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactChild } from "react";
 import constate from "constate";
 import IndexTemplate from "@pokedex/templates/index";
 
@@ -20,7 +20,9 @@ const Index = () => (
 export default Index;
 
 const [PokemonProv, usePokemon] = constate(usePokemonC);
-const Providers = props => <PokemonProv>{props.children}</PokemonProv>;
+const Providers = ({ children }: { children: ReactChild }) => (
+  <PokemonProv>{children}</PokemonProv>
+);
 
 //Connected components
 const ConnectedSearch = () => {
@@ -29,12 +31,15 @@ const ConnectedSearch = () => {
 };
 const ConnectedList = () => {
   const { chunk, getPokemon, totalPages, morePokemons } = usePokemon();
+  const handleMore = (e: Event, a: { activePage: number }) => {
+    return morePokemons(a.activePage);
+  };
   return (
     <PokemonList
       handleItemClick={getPokemon}
       pokemons={chunk}
       totalPages={totalPages}
-      handleMoreClick={(e, a) => morePokemons(a.activePage)}
+      handleMoreClick={handleMore}
     />
   );
 };

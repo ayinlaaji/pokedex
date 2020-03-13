@@ -4,7 +4,6 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "skipLibCheck": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -16,7 +15,8 @@
     "paths": {
       "@pokedex/*": ["*"]
     },
-    "allowJs": true
+    "allowJs": false,
+    "strict": true
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

@@ -5,7 +5,7 @@ import * as styles from "./styles";
 import { Poke } from "@pokedex/typings/pokemon";
 
 type Props = {
-  handleSubmit: ReactEventHandler;
+  handleSubmit: any;
   pokemons: Poke[];
 };
 const Search = ({ handleSubmit, pokemons }: Props) => {
