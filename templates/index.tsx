@@ -1,5 +1,5 @@
-import React, { FunctionComponent, createRef } from "react";
-import { Grid, Divider } from "semantic-ui-react";
+import React, { FunctionComponent } from "react";
+import { Grid } from "semantic-ui-react";
 
 type Props = {
   Search: FunctionComponent;

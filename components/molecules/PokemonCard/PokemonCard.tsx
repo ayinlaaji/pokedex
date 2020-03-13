@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Image, Placeholder } from "semantic-ui-react";
-import { Pokemon as Props } from "../../typings/pokemon";
+import { Pokemon as Props } from "../../../typings/pokemon";
 
 const PokemonCard = ({
   baseExperience,

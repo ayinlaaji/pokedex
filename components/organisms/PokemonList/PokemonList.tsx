@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Grid, List, Pagination } from "semantic-ui-react";
+import { Divider, List, Pagination } from "semantic-ui-react";
 import PokemonItem from "../../molecules/PokemonItem";
 import { Pokemon } from "../../../typings/pokemon";
 

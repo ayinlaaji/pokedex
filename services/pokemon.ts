@@ -7,9 +7,8 @@ class PokemonService {
   constructor() {
     this.baseUrl = baseUrl;
   }
-  async listPokemons(): { name: string; url: string }[] {
+  async listPokemons(): Promise<{ name: string; url: string }[]> {
     try {
-      //fetch()
       let url = this.baseUrl + "/pokemon?offset=0&limit=960";
       let r = await fetch(url);
       let ro = await r.json();
@@ -23,9 +22,8 @@ class PokemonService {
       console.log(error);
     }
   }
-  async getPokemon(id: string): Pokemon {
+  async getPokemon(id: string): Promise<Pokemon> {
     try {
-      //fetch()
       let url = this.baseUrl + `/pokemon/${id}`;
       let r = await fetch(url);
       const p = await r.json();

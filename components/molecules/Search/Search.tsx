@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 import Autocomplete from "react-autocomplete";
 import * as styles from "./styles";
-import { Pokemons } from "../../typings/pokemon";
+import { Pokemons } from "../../../typings/pokemon";
 
 type Props = {
   handleSubmit: any;

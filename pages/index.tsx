@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import constate from "constate";
 import IndexTemplate from "../templates/index";
 
