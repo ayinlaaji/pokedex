@@ -20,7 +20,7 @@ const Index = () => (
 export default Index;
 
 const [PokemonProv, usePokemon] = constate(usePokemonC);
-const Providers = props => <PokemonProv>{props.children}</PokemonProv>;
+const Providers = (props) => <PokemonProv>{props.children}</PokemonProv>;
 
 //Connected components
 const ConnectedSearch = () => {
