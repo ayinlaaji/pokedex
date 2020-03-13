@@ -1,11 +1,11 @@
 import React from "react";
 import { Divider, List, Pagination } from "semantic-ui-react";
 import PokemonItem from "@pokedex/components/molecules/PokemonItem";
-import { Pokemon } from "@pokedex/typings/pokemon";
+import { Poke } from "@pokedex/typings/pokemon";
 
 type Props = {
   totalPages: number;
-  pokemons: Pokemon[];
+  pokemons: Poke[];
   handleItemClick: (id: string) => void;
   handleMoreClick: any;
 };

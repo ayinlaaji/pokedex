@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 import _ from "lodash";
-import { Pokemon, Poke } from "../typings/pokemon";
-import { baseUrl } from "../configurations/domains";
+import { Pokemon, Poke } from "@pokedex/typings/pokemon";
+import { baseUrl } from "@pokedex/configurations/domains";
 
 class PokemonService {
   baseUrl = baseUrl;

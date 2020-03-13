@@ -28,11 +28,11 @@ const ConnectedSearch = () => {
   return <Search pokemons={pokemons} handleSubmit={getPokemon} />;
 };
 const ConnectedList = () => {
-  const { pokemons, getPokemon, totalPages, morePokemons } = usePokemon();
+  const { chunk, getPokemon, totalPages, morePokemons } = usePokemon();
   return (
     <PokemonList
       handleItemClick={getPokemon}
-      pokemons={pokemons}
+      pokemons={chunk}
       totalPages={totalPages}
       handleMoreClick={(e, a) => morePokemons(a.activePage)}
     />

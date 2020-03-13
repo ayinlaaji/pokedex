@@ -50,6 +50,7 @@ const defaultPokemon: Pokemon = {
 
 type IUsePokemons = () => {
   totalPages: number;
+  chunk: Poke[];
   pokemons: Poke[];
   getPokemon: (id: string) => void;
   morePokemons: (cursor: number) => void;
@@ -79,7 +80,8 @@ const usePokemon: IUsePokemons = () => {
     });
   };
   return {
-    pokemons: state.chunk,
+    chunk: state.chunk,
+    pokemons: state.pokemons,
     totalPages: state.totalPages,
     currentPokemon,
     getPokemon: async (id: string) => {
