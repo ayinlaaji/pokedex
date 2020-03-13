@@ -4,7 +4,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@yarnpkg/pnpify": "^2.0.0-rc.19",
