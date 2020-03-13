@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 import Autocomplete from "react-autocomplete";
 import * as styles from "./styles";
-import { Pokemons } from "../../../typings/pokemon";
+import { Pokemon } from "@pokedex/typings/pokemon";
 
 type Props = {
   handleSubmit: any;
-  pokemons: Pokemons[];
+  pokemons: Pokemon[];
 };
 const Search = ({ handleSubmit, pokemons }: Props) => {
   const [name, setPokemon] = useState<string>("");

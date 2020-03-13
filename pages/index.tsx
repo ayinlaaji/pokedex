@@ -1,11 +1,11 @@
 import React from "react";
 import constate from "constate";
-import IndexTemplate from "../templates/index";
+import IndexTemplate from "@pokedex/templates/index";
 
-import Search from "../components/molecules/Search";
-import PokemonList from "../components/organisms/PokemonList";
-import PokemonCard from "../components/molecules/PokemonCard";
-import usePokemonC from "../reducers/pokemon";
+import Search from "@pokedex/components/molecules/Search";
+import PokemonList from "@pokedex/components/organisms/PokemonList";
+import PokemonCard from "@pokedex/components/molecules/PokemonCard";
+import usePokemonC from "@pokedex/reducers/pokemon";
 
 const Index = () => (
   <Providers>

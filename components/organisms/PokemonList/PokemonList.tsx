@@ -1,7 +1,7 @@
 import React from "react";
 import { Divider, List, Pagination } from "semantic-ui-react";
-import PokemonItem from "../../molecules/PokemonItem";
-import { Pokemon } from "../../../typings/pokemon";
+import PokemonItem from "@pokedex/components/molecules/PokemonItem";
+import { Pokemon } from "@pokedex/typings/pokemon";
 
 type Props = {
   totalPages: number;
